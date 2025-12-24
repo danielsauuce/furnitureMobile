@@ -1,10 +1,15 @@
-// https://docs.expo.dev/guides/using-eslint/
-const { defineConfig } = require('eslint/config');
-const expoConfig = require('eslint-config-expo/flat');
+import expo from "eslint-config-expo";
+import prettier from "eslint-config-prettier";
 
-module.exports = defineConfig([
-  expoConfig,
+export default [
+  expo,
+  prettier,
   {
-    ignores: ['dist/*'],
+    files: ["**/*.{ts,tsx,js,jsx}"],
+    rules: {
+      "prettier/prettier": "error",
+      "react/react-in-jsx-scope": "off",
+      "react-native/no-inline-styles": "off",
+    },
   },
-]);
+];
