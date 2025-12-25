@@ -2,11 +2,18 @@ import { Text, View, Image, TouchableOpacity, StyleSheet, useWindowDimensions } 
 import '../global.css';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
 
 const { width, height } = useWindowDimensions();
 console.log(width, height);
 
 export default function Welcome() {
+  const router = useRouter();
+
+  const handleGetStarted = () => {
+    router.push('/auth');
+  };
+
   return (
     <View className="flex-1">
       <LinearGradient
@@ -62,7 +69,10 @@ export default function Welcome() {
           </View>
 
           <View className="gap-3">
-            <TouchableOpacity className="h-14 rounded-[16px] bg-white justify-center items-center shadow-md">
+            <TouchableOpacity
+              className="h-14 rounded-[16px] bg-white justify-center items-center shadow-md"
+              onPress={handleGetStarted}
+            >
               <Text className="text-lg font-bold text-[#6366F1]">Get Started</Text>
             </TouchableOpacity>
           </View>
