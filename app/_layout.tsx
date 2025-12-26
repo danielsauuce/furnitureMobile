@@ -13,7 +13,8 @@ export default function RootLayout() {
       <Stack.Screen
         name="auth"
         options={{
-          headerShown: true,
+          headerShown: false,
+          presentation: 'pageSheet',
         }}
       />
     </Stack>

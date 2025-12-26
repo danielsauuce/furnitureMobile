@@ -25,8 +25,11 @@ export default function AuthScreen() {
         contentContainerClassName="flex-grow px-5 pb-10"
         contentContainerStyle={{ paddingTop: insets.top + 40 }}
       >
-        <View>
-          <Text className="text-4xl">Daniel</Text>
+        <View className="items-center mb-10">
+          <Text className="text-[40px] font-bold tracking-[0.5px] text-light-primary">Olayinka</Text>
+          <Text className="text-[13px] tracking-[2px] uppercase mt-1 text-light-secondary">
+            Furniture Palace
+          </Text>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
