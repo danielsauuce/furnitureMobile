@@ -13,8 +13,22 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+type AuthMode = 'login' | 'signup' | 'reset';
+
 export default function AuthScreen() {
   const insets = useSafeAreaInsets();
+  const [mode, setMode] = useState<AuthMode>('login');
+
+  const headerTitle =
+    mode === 'login' ? 'Welcome Back' : mode === 'signup' ? 'Create Account' : 'Reset Password';
+
+  const headerSubtitle =
+    mode === 'login'
+      ? 'Sign in to continue shopping'
+      : mode === 'signup'
+        ? 'Join us to start shopping'
+        : 'Enter your email and new password';
+
   return (
     <KeyboardAvoidingView
       className="flex-1 bg-light-background dark:bg-dark-background"
@@ -30,6 +44,17 @@ export default function AuthScreen() {
           <Text className="text-[13px] tracking-[2px] uppercase mt-1 text-light-secondary">
             Furniture Palace
           </Text>
+        </View>
+
+        <View className="rounded-[20px] p-7 shadow-lg bg-light-surface dark:bg-dark-surface">
+          <View className="mb-8">
+            <Text className="text-[28px] font-bold mb-2 text-light-text dark:text-dark-text">
+              {headerTitle}
+            </Text>
+            <Text className="text-[15px] text-light-secondary dark:text-dark-secondary">
+              {headerSubtitle}
+            </Text>
+          </View>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
