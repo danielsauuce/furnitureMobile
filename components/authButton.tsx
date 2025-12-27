@@ -15,7 +15,7 @@ export default function AuthButton({ label, onPress, isloading = false, disable 
     ? 'bg-light-surface-variant dark:bg-dark-surface-variant'
     : 'bg-light-primary dark:bg-dark-primary';
 
-  const textSyles = isDisable
+  const textStyles = isDisable
     ? 'text-light-text-tertiary dark:text-dark-text-tertiary'
     : 'text-light-surface dark:text-dark-surface';
 
@@ -26,9 +26,9 @@ export default function AuthButton({ label, onPress, isloading = false, disable 
       className={`h-[52px] rounded-[14px] items-center justify-center mt-4 ${buttonStyles}`}
     >
       {isloading ? (
-        <ActivityIndicator color="#fff" />
+        <ActivityIndicator color="#8B4513" />
       ) : (
-        <Text className="text-base font-semibold text-light-text dark:text-dark-text">{label}</Text>
+        <Text className={`font-bold text-base ${textStyles}`}>{label}</Text>
       )}
     </TouchableOpacity>
   );
