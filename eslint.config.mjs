@@ -20,12 +20,10 @@ export default [
   {
     ignores: ['node_modules', '.expo', '.next', 'dist'],
   },
-  // Load the base Expo and Prettier configs
   ...compat.extends('eslint-config-expo', 'prettier'),
   {
     files: ['**/*.{ts,tsx,js,jsx}'],
     plugins: {
-      // Register all plugins used in the rules below
       prettier: prettierPlugin,
       react: reactPlugin,
       'react-native': reactNativePlugin,
