@@ -4,10 +4,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 
-const { width, height } = useWindowDimensions();
-console.log(width, height);
-
 export default function WelcomeScreen() {
+  const { width, height } = useWindowDimensions();
+  console.log(width, height);
   const router = useRouter();
 
   const handleGetStarted = () => {
