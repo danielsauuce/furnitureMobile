@@ -14,7 +14,7 @@ export default function RootLayout() {
         name="auth"
         options={{
           headerShown: false,
-          presentation: "modal",
+          presentation: 'modal',
         }}
       />
     </Stack>

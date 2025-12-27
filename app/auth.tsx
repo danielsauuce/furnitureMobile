@@ -12,12 +12,24 @@ import {
   Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import LoginFormScreen from '@/components/loginForm';
+import AuthButton from '@/components/authButton';
+import { useRouter } from 'expo-router';
 
 type AuthMode = 'login' | 'signup' | 'reset';
 
 export default function AuthScreen() {
+  const router = useRouter();
   const insets = useSafeAreaInsets();
   const [mode, setMode] = useState<AuthMode>('login');
+
+  const handleLogin = () => {
+    setLoading(true);
+    router.push('/');
+    setLoading(false);
+  };
+  const [loading, setLoading] = useState(false);
 
   const headerTitle =
     mode === 'login' ? 'Welcome Back' : mode === 'signup' ? 'Create Account' : 'Reset Password';
@@ -55,6 +67,8 @@ export default function AuthScreen() {
               {headerSubtitle}
             </Text>
           </View>
+
+          <AuthButton label="Sign In" isloading={loading} onPress={handleLogin} disable={false} />
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
